@@ -11,7 +11,7 @@
   
   <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Homemade+Apple' rel='stylesheet' type='text/css'>
-  <link rel="shortcut icon" sizes="57x57" href="icon.jpg">
+  <%= favicon_link_tag 'icon.jpg' %>
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.js"></script>
@@ -29,7 +29,7 @@
 </head>
 <body>
 
-  <%= image_tag "logo.jpg", alt:"logo", id:"logo", id:"header" %>
+  <%= image_tag "logo.jpg", alt:"logo", id:"logo", id:"header", class: "top-header" %>
   <div id="body">
 
     <div class="welcome" class="animated" class="fadeIn">
@@ -48,25 +48,28 @@
       
       <!-- toggle -->
       <div ng-show="dataReceived">
-      
-
+        <hr>
+        <h2 class="centre">Uploaded Image Content</h2>
+        
         <div id="content">
           <h2>Type:</h2>
           <div ng-repeat="item in items">
             <p>{{item}}</p>
           </div>
         </div>
-
+       
         <div id="sidebar">
           <h2>Color:</h2>
 
           <div ng-repeat="color in colors">
             <p>{{color.label}}</p>       
           </div>
-        </div><br>
+        </div>
       </div>
   
       <div id="footer" ng-show="dataReceived">
+        <hr>
+        <h2 class="centre" id="script">Don't <b>wonder</b>, just <b>wear</b></h2>
         <div ng-repeat="price in prices">
         <hr>
           <h2>Brand:</h2>
@@ -74,8 +77,9 @@
 
           <h2>Price:</h2>
           <p>{{price.priceLabel}}</p>
+          <img src="{{price.image }}">
           
-          <a href="{{price.pageUrl}}">Buy Me!</a>
+          <a href="{{price.pageUrl}}" target="_blank">Buy Me!</a>
         <br>
         <hr>
         </div>

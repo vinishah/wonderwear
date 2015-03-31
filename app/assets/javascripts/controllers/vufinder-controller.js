@@ -1,5 +1,11 @@
-app.controller('VufinderController', function($scope, $http) {
-console.log(gon.vufind_key, gon.shopsense_key, gon.mashape_key, gon.wonderwear_access_key, gon.wonderwear_secret_key)
+app.controller('VufinderController', function($scope, $http, $timeout) {
+
+  // $scope.callAtTimeout = function(input) {
+  //         console.log("$scope.callAtTimeout - Timeout occurred");
+  //     }
+
+  //     $timeout( function(){ $scope.callAtTimeout(); }, 3000);
+
   $scope.creds = {
     bucket: 'wonderwear',
     access_key: gon.wonderwear_access_key,
@@ -38,8 +44,8 @@ console.log(gon.vufind_key, gon.shopsense_key, gon.mashape_key, gon.wonderwear_a
 
   }
 
-   // image upload
-  $scope.upload = function() {
+ // image upload
+  $scope.upload = function($timeout) {
     // Configure The S3 Object 
     AWS.config.update({ accessKeyId: $scope.creds.access_key, secretAccessKey: $scope.creds.secret_key });
     AWS.config.region = 'us-east-1';
@@ -74,6 +80,7 @@ console.log(gon.vufind_key, gon.shopsense_key, gon.mashape_key, gon.wonderwear_a
     $scope.dataReceived = true;
   }
 
+
   // shopsense API
   $scope.getPrice = function(clothingColor, clothingType) {
     console.log(clothingColor[1].label, clothingType[0])
@@ -91,8 +98,9 @@ console.log(gon.vufind_key, gon.shopsense_key, gon.mashape_key, gon.wonderwear_a
       $scope.brandedName = data.products.brandedName;
       $scope.currency = data.products.currency;
       $scope.price = data.products.price;
-      $scope.description = data.products.description;
       $scope.clickUrl = data.products.clickUrl;
+      $scope.image = data.products.image;
+
 
     $scope.dataReceived = true;
 
