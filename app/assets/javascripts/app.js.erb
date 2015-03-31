@@ -1,0 +1,14 @@
+#= depend_on_asset "index.html"
+
+var app = angular.module('wonderwearApp',  ['ngAnimate','ngRoute']);
+
+app.config(function($routeProvider){
+  $routeProvider
+  .when('/', {
+    controller: 'VufinderController',
+    templateUrl: "<%= asset_path('index.html') %>"
+  })
+  .otherwise({
+    redirectTo: '/'
+  });
+});

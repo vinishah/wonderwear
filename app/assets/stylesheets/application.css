@@ -1,0 +1,169 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ *{
+   box-sizing: border-box;
+   font-family: Verdana;
+   color: #FF1CB7;
+ }
+
+ input{
+   text-align: center;
+   padding: 3px;
+   margin: 0 auto;
+   display: inherit;
+   margin-bottom: 10px;
+   padding-top: 20px;
+   padding-left: ;
+ }
+
+ .buy{
+   float: right;
+ }
+
+ body{
+   background-color: black;
+   margin: 20px;
+   border: 1px solid #FF1CB7;
+   font-family: 'Lato', sans-serif;
+   clear: both;
+   padding: 40px;
+   padding-top: 0px;
+   padding-bottom: 0px;
+ }
+
+ .welcome p{
+   font-family: 'Homemade Apple', cursive;
+   letter-spacing: 4px; 
+   text-align: center;
+   color: #F2EDED;
+   padding: 3px;
+   padding-top: 10px;
+   padding-bottom: 10px;
+ }
+
+ .welcome{
+  display: inline-block;
+  position: relative;
+}
+
+.welcome:before{
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 1px;
+    bottom: 0;
+    left: 25%;
+    border-bottom: 1px solid white;
+}
+
+ h2{
+   font-size: 18px;
+   text-decoration: underline;
+   clear:both;
+ }
+
+ p{
+   color: white;
+   font-size: 15px;
+ }
+ label{
+   font-size: 18px;
+ }
+
+
+ button{
+   float: right;
+   font-weight: bold;
+   background-color: #423D45;
+   border: 1px double #FF1CB7;
+ }
+
+ a{
+   font-weight: bold;
+   background-color: white;
+   border: 1px double #FF1CB7;
+   float: right;
+ }
+
+#header{
+   width: 300px;
+   display: block;    
+   margin: 0 auto;
+   border-bottom: 1px solid white;
+   padding-bottom: 0px;
+ }
+
+ #body{
+   padding: 20px;
+ }
+
+ div#body{
+   margin-bottom: 40px;
+ }
+ .outfit{
+   margin: 0 auto;
+   display: block;
+   width: 500px;
+ }
+
+ #content{
+   float:left;
+   padding: 100px;
+ }
+
+ #sidebar{
+   float:left;
+   padding: 100px;
+ }
+
+ .footer p{
+   font-size: 10px;
+   color: #E2E6D5;
+   text-align: right;
+   border-top: 1px solid white;
+   padding-top: 3px;
+   clear:both;
+ }
+
+ #footer p{
+   clear:both;
+ }
+
+ @-webkit-keyframes fadeIn {
+   0% {
+     opacity: 0;
+   }
+
+   100% {
+     opacity: 1;
+   }
+ }
+
+ @keyframes fadeIn {
+   0% {
+     opacity: 0;
+   }
+
+   100% {
+     opacity: 1;
+   }
+ }
+
+ .fadeIn {
+   -webkit-animation-name: fadeIn;
+   animation-name: fadeIn;
+ }

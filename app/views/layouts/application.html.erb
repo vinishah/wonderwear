@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="wonderwearApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>WonderWear</title>
+  <%= include_gon %>
+  <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css">
+
+  <%= stylesheet_link_tag    'application' %>
+  
+  <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Homemade+Apple' rel='stylesheet' type='text/css'>
+  <link rel="shortcut icon" sizes="57x57" href="icon.jpg">
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.js"></script>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-animate.js"></script>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-resource.js"></script>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+
+ 
+  <%= javascript_include_tag 'application' %>
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <%= image_tag "logo.jpg", alt:"logo", id:"logo", id:"header" %>
+  <div id="body">
+
+    <div class="welcome" class="animated" class="fadeIn">
+      <p>Welcome to Wonderwear, the fashion app that takes away the wonder factor from what they are wearing.</p>
+      <p>To use the app simply upload an image of an outfit and I will tell you where you can buy it!</p>
+      <p>Upload to let the magic begin ☆</p>
+    </div>
+
+    <div ng-controller="VufinderController">
+      <input name="file" type="file" class="animated" class="wobble" file/>
+      <button ng-click="upload()">Get Items</button>
+
+      <div>
+        <img ng-src="{{url}}" alt="" class="outfit" class="animated" class="zoomIn">
+      </div>
+      
+      <!-- toggle -->
+      <div ng-show="dataReceived">
+      
+
+        <div id="content">
+          <h2>Type:</h2>
+          <div ng-repeat="item in items">
+            <p>{{item}}</p>
+          </div>
+        </div>
+
+        <div id="sidebar">
+          <h2>Color:</h2>
+
+          <div ng-repeat="color in colors">
+            <p>{{color.label}}</p>       
+          </div>
+        </div><br>
+      </div>
+  
+      <div id="footer" ng-show="dataReceived">
+        <div ng-repeat="price in prices">
+        <hr>
+          <h2>Brand:</h2>
+          <p>{{price.brandedName}}</p>
+
+          <h2>Price:</h2>
+          <p>{{price.priceLabel}}</p>
+          
+          <a href="{{price.pageUrl}}">Buy Me!</a>
+        <br>
+        <hr>
+        </div>
+      </div>
+      
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <p>Copyright 2015 ©</p>
+  </div>
+
+</body>
+</html>
