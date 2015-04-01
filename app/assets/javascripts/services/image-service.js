@@ -1,10 +1,10 @@
 app.factory('ImageService', function($http){
   var ImageService = {
     getImages: function(){
-      return $http.get('http://localhost:3000/images')
+      return $http.get('/images')
     },
     createImage: function(image) {
-      return $http.image('http://localhost:3000/images', image)
+      return $http.post('/images', image)
     }
   };
   return ImageService;
