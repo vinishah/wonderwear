@@ -32,15 +32,15 @@
   <%= image_tag "logo.jpg", alt:"logo", id:"logo", id:"header", class: "top-header" %>
   <div id="body">
 
-    <div class="welcome" class="animated" class="fadeIn">
+    <div class="welcome">
       <p>Welcome to Wonderwear, the fashion app that takes away the wonder factor from what they are wearing.</p>
       <p>To use the app simply upload an image of an outfit and I will tell you where you can buy it!</p>
       <p>Upload to let the magic begin ☆</p>
     </div>
 
     <div ng-controller="VufinderController">
-      <input name="file" type="file" class="animated" class="wobble" file/>
-      <button ng-click="upload()">Get Items</button>
+      <input name="file" type="file" class="shake" file/>
+      <button ng-click="upload()" class="heartbeat">Get Info</button>
 
       <div>
         <img ng-src="{{url}}" alt="" class="outfit" class="animated" class="zoomIn">
@@ -72,14 +72,19 @@
         <h2 class="centre" id="script">Don't <b>wonder</b>, just <b>wear</b></h2>
         <div ng-repeat="price in prices">
         <hr>
-          <h2>Brand:</h2>
-          <p>{{price.brandedName}}</p>
+          <div class="infogotten">
+            <h2>Brand:</h2>
+            <p>{{price.brandedName}}</p>
 
-          <h2>Price:</h2>
-          <p>{{price.priceLabel}}</p>
-          <img src="{{price.image.sizes.Best.url }}">
+            <h2>Price:</h2>
+            <p>{{price.priceLabel}}</p>
+          </div>
           
-          <a href="{{price.pageUrl}}" target="_blank">Buy Me!</a>
+         
+          <img src="{{price.image.sizes.Best.url }}" class="buymeimage">
+     
+          <a href="{{price.pageUrl}}" target="_blank" class="shake">Buy Me!</a>
+         
         <br>
         <hr>
         </div>
