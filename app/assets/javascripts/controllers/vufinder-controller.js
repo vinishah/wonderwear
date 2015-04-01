@@ -1,4 +1,4 @@
-app.controller('VufinderController', function($scope, $http, $timeout) {
+app.controller('VufinderController', ['$scope', '$http', '$timeout', function($scope, $http, $timeout) {
 
   // $scope.callAtTimeout = function(input) {
   //         console.log("$scope.callAtTimeout - Timeout occurred");
@@ -101,7 +101,6 @@ app.controller('VufinderController', function($scope, $http, $timeout) {
       $scope.clickUrl = data.products.clickUrl;
       $scope.image = data.products.image;
 
-
     $scope.dataReceived = true;
 
     
@@ -112,4 +111,4 @@ app.controller('VufinderController', function($scope, $http, $timeout) {
   }
 
 
-});
+}]);
