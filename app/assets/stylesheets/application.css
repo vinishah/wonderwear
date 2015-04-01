@@ -189,7 +189,7 @@ div#body{
  }
 }
 /*wobble*/
-/*@-webkit-keyframes spaceboots {
+@-webkit-keyframes spaceboots {
   0% { -webkit-transform: translate(2px, 1px) rotate(0deg); }
   10% { -webkit-transform: translate(-1px, -2px) rotate(-1deg); }
   20% { -webkit-transform: translate(-3px, 0px) rotate(1deg); }
@@ -212,7 +212,7 @@ div#body{
 }
 .shake {
   display:inline-block
-}*/
+}
 
 input{
  text-align: center;
