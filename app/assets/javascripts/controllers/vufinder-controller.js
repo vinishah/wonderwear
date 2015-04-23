@@ -1,10 +1,5 @@
 app.controller('VufinderController', ['$scope', '$http', '$timeout', function($scope, $http, $timeout) {
 
-  // $scope.callAtTimeout = function(input) {
-  //         console.log("$scope.callAtTimeout - Timeout occurred");
-  //     }
-
-  //     $timeout( function(){ $scope.callAtTimeout(); }, 3000);
 
   $scope.creds = {
     bucket: 'wonderwear',
@@ -26,7 +21,6 @@ app.controller('VufinderController', ['$scope', '$http', '$timeout', function($s
 
     //getting the color of the items
     $http.get($scope.fullUrl).success(function(data){
-      console.log(data)
       $scope.colors = data.tags
     }).then(function(){
 
@@ -37,7 +31,6 @@ app.controller('VufinderController', ['$scope', '$http', '$timeout', function($s
         $scope.dataArr = newData.Data.VufindTags
         $scope.items = []
         $scope.dataArr.forEach(function(item){$scope.items.push(item.replace("_", " "))})
-        console.log($scope.colors)
         $scope.getPrice($scope.colors, $scope.items);
       })
     })
@@ -84,14 +77,11 @@ $scope.upload = function($timeout) {
 
   // shopsense API
   $scope.getPrice = function(clothingColor, clothingType) {
-    console.log(clothingColor[1].label, clothingType[0])
 
     if(clothingType.length == 1){
       $http.get('http://api.shopstyle.com/api/v2/products?pid='+gon.shopsense_key+'&fts=' + clothingColor[1].label + '+' + clothingColor[2].label + '+' + clothingType[0])
       .then(function(response) {
-        console.log(response)
         var data = response.data;
-        console.log(data.products);
         $scope.prices = data.products;
         $scope.dataReceived = true;
 
@@ -106,7 +96,6 @@ $scope.upload = function($timeout) {
           .then(function(response2) {
           clothingData = []
           clothingData.push(response1,response2)
-          console.log(clothingData)
           newData = []
           for(var i = 0; i<clothingData.length;i++){
            newData.push(clothingData[i].data.products)
@@ -125,7 +114,6 @@ $scope.upload = function($timeout) {
           .then(function(response3) {
             clothingData = []
             clothingData.push(response1,response2,response3)
-            console.log(clothingData)
             newData = []
             for(var i = 0; i<clothingData.length;i++){
              newData.push(clothingData[i].data.products)
